@@ -1,0 +1,67 @@
+.firework-rounded {
+  width: 75px;
+  height: 75px;
+  position: relative;
+}
+.firework-rounded-light {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  border-color: #fbbc04 !important;
+  animation: fireworksAnimation 1.5s ease-out infinite alternate;
+  opacity: 0;
+}
+.firework-rounded-light:nth-child(1) {
+  width: 15px;
+  height: 15px;
+  border: 1px dotted #f9a600;
+  animation-delay: 0.3s;
+}
+.firework-rounded-light:nth-child(2) {
+  width: 25px;
+  height: 25px;
+  border: 2px dotted #ffbb33;
+  animation-delay: 0.5s;
+}
+.firework-rounded-light:nth-child(3) {
+  width: 35px;
+  height: 35px;
+  border: 3px dotted #ffcc66;
+  animation-delay: 0.7s;
+}
+.firework-rounded-light:nth-child(4) {
+  width: 45px;
+  height: 45px;
+  border: 4px dotted #ffdd99;
+  animation-delay: 0.9s;
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+.firework-rounded-light:nth-child(5) {
+  width: 55px;
+  height: 55px;
+  border: 5px dotted #ffe5b3;
+  animation-delay: 1.1s;
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+.firework-rounded-light:nth-child(6) {
+  width: 65px;
+  height: 65px;
+  border: 6px dotted #fff2cc;
+  animation-delay: 1.3s;
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+
+@keyframes fireworksAnimation {
+  0%,
+  100% {
+    opacity: 0;
+    border-color: #fbbc04;
+  }
+  50% {
+    opacity: 1;
+    border-color: #fbbc04;
+  }
+}
