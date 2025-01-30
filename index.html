@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1 align="center" style="margin: 0px">Our Courses</h1>
+    <div class="row" id="coursesList">
+      <!-- <div class="col-md-12">
+        <div
+          style="
+            background-image: radial-gradient(
+              circle,
+              #fffdf5,
+              #fffde1,
+              #fffdcd,
+              #fffeb9,
+              #fbffa5
+            );
+            min-height: 40px;
+            width: 100%;
+            margin: 6px;
+          "
+        >
+          <h3
+            align="left"
+            style="
+              background: #006600;
+              padding: 6px;
+              min-height: 30px;
+              color: #ffffff;
+              font-size: 16px;
+              text-transform: capitalize;
+            "
+          >
+            Advance Diploma In Computer Applications &amp; Programming Skill
+          </h3>
+          <div
+            align="left"
+            style="
+              font-size: 18px;
+              margin: 0;
+              padding-left: 10px;
+              color: #000000;
+            "
+          >
+            Code:&nbsp;&nbsp;ADCPS296
+          </div>
+          <div
+            align="left"
+            style="font-size: 14px; padding-left: 10px; color: #000000"
+          >
+            Duration: 18 Months
+          </div>
+          <div
+            align="left"
+            style="font-size: 14px; padding: 10px; color: #000000"
+          >
+            Fundamentals &amp; Number System (Part I &amp; II), MS-DOS, Windows,
+            English Typing, Bangla Typing (Bangla Word &amp; Bijay Bangla),
+            MS-Office (Word, Excel, Power Point, Access), PageMaker, Photoshop,
+            Corel Drew, Instant Artist, Web Development (HTML, DHTML, CSS, Java
+            Script), Visual Basic, C, C++, Python, SQL, Cyber Security, Tally
+            with GST, Device Connectivity, Driver Installation, Soft Skill &amp;
+            PDP, Digital Media Skill &amp; Analysis (Google Drive, Social Media
+            Use, YouTube Channel, Online Transaction, Blogging, Word Press) PDF,
+            ZIP, JPG, PNG Operation &amp; Convert, Internet &amp; Email.
+          </div>
+        </div>
+      </div> -->
+    </div>
+    <hr />
+    <h1 align="center" style="margin: 0px">Others</h1>
+  </body>
+  <script>
+    // let courses = [];
+    // document.addEventListener("DOMContentLoaded", function () {
+    //   document.querySelectorAll(".col-md-12 > div").forEach((courseDiv) => {
+    //     let courseName =
+    //       courseDiv.querySelector("h3")?.textContent.trim() || "";
+    //     let courseCodeDiv = courseDiv.querySelector("div:nth-of-type(1)");
+    //     let courseDescriptionDiv =
+    //       courseDiv.querySelector("div:nth-of-type(3)");
+
+    //     let courseCode =
+    //       courseCodeDiv?.textContent.replace("Code:", "").trim() || "";
+
+    //     // Remove all newlines and extra spaces
+    //     let courseDescription =
+    //       courseDescriptionDiv?.textContent.replace(/\s+/g, " ").trim() || "";
+
+    //     courses.push({
+    //       name: courseName,
+    //       code: courseCode,
+    //       duration: 18,
+    //       description: courseDescription,
+    //     });
+    //   });
+    // });
+
+    // const uploadData = () => {
+
+    //   return;
+
+    //   fetch("http://localhost:8003/api/v1/users/add-courses", {
+    //     method: "POST",
+    //     headers: {
+    //       "Content-Type": "application/json",
+    //     },
+    //     body: JSON.stringify(courses),
+    //   })
+    //     .then((response) => response.json())
+    //     .then((data) => {
+    //       console.log("Success:", data);
+    //     })
+    //     .catch((error) => {
+    //       console.error("Error:", error);
+    //     });
+    // };
+
+    document.addEventListener("DOMContentLoaded", function () {
+      fetch("http://localhost:8003/api/v1/users/get-courses", {
+        method: "GET",
+      })
+        .then((response) => response.json())
+        .then((response) => {
+          const { courses } = response.data;
+
+          const selectedCourse = [
+            "CITA120",
+            "DCA112",
+            "DCFT111",
+            "DBCS148",
+            "DCAS154",
+            "DBAE161",
+            "CAE157",
+            "CDA158",
+            "CPL141",
+            "DP137",
+            "CWD131",
+            "CBT130",
+            "CPL129",
+            "CIT128",
+            "CCL++127",
+            "CCL126",
+            "CPP122",
+            "DCT121",
+            "DHN109",
+            "DDP108",
+            "DPL107",
+            "DDO102",
+            "DIT101",
+            "DWD100",
+            "CDOAM259",
+            "DCA258",
+            "DCAP255",
+            "DCAPS252",
+            "DOA251",
+            "ADCAIT250",
+            "PGDCAP247",
+            "DCFK244",
+            "CCOM242",
+            "DCS240",
+            "GDCA237",
+            "PDCA236",
+            "DOM234",
+            "ADSD216",
+            "ADCS215",
+            "ADDE209",
+            "ADPL206",
+            "ADIT201",
+            "ADCO299",
+            "PGDCAT298",
+            "ADCPS296",
+            "PGCA295",
+          ];
+          const coursesList = document.getElementById("coursesList");
+
+          let myHtml = ``;
+
+          courses.forEach((course) => {
+            myHtml += `
+                <div class="col-md-12" style="border-top: 1px #bebdbd solid">
+        <div style="min-height: 40px; width: 100%">
+          <h3 style="margin: 0px; font-size: 18px; text-transform: capitalize">
+            ${course.name}
+          </h3>
+          <div style="margin-top: 2px">
+            Code:&nbsp;&nbsp;<strong style="font-size: 14px">${course.code}</strong>
+            (${course.duration} Months)
+          </div>
+          <div style="font-size: 14px">
+            ${course.description}
+          </div>
+        </div>
+      </div>
+                `;
+          });
+
+          coursesList.innerHTML = myHtml;
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+        });
+    });
+  </script>
+</html>
