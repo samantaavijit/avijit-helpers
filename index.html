@@ -73,6 +73,7 @@
     </div>
     <hr />
     <h1 align="center" style="margin: 0px">Others</h1>
+    <div class="row" id="otherCoursesList"></div>
   </body>
   <script>
     // let courses = [];
@@ -200,6 +201,69 @@
           });
 
           coursesList.innerHTML = myHtml;
+
+          const otherCourses = [
+            {
+              name: "Basic Programming Language",
+              description: "C, C++, JAVA, Python, JavaScript",
+            },
+            {
+              name: "Web Development",
+              description: "ReactJS, ViewJS, Express, NextJS",
+            },
+            {
+              name: "Web Design",
+              description: "HTML, CSS, SCSS, Bootstrap, TailwindCSS",
+            },
+            {
+              name: "Database Management",
+              description: "MySQL, MongoDB, Firebase",
+            },
+            {
+              name: "Backend Development",
+              description: "NodeJS, Express, Django, Flask, PHP",
+            },
+            {
+              name: "AI",
+              description:
+                "ChatGPT, Google Geocoding API,Machine Learning, Deep Learning, Neural Network",
+            },
+            {
+              name: "Advance Excel",
+              description:
+                "VLOOKUP, HLOOKUP, Pivot Table, Data Analysis, Data Visualization, Power Query, Power Pivot, Power BI",
+            },
+            {
+              name: "DevOps",
+              description:
+                "Docker, Kubernetes, Jenkins, Git, GitHub, GitLab, Bitbucket, AWS, Azure, Google Cloud",
+            },
+            {
+              name: "Networking",
+              description: "CCNA, CCNP, CCIE, Network Security, Cyber Security",
+            },
+          ];
+
+          const otherCoursesList = document.getElementById("otherCoursesList");
+
+          let otherCoursesHtml = ``;
+
+          otherCourses.forEach((course) => {
+            otherCoursesHtml += `
+                    <div class="col-md-12" style="border-top: 1px #bebdbd solid">   
+                        <div style="min-height: 40px; width: 100%">
+                            <h3 style="margin: 0px; font-size: 18px; text-transform: capitalize">
+                                ${course.name}
+                            </h3>
+                            <div style="font-size: 14px">
+                                ${course.description}
+                            </div>
+                        </div>
+                    </div>
+                `;
+          });
+
+          otherCoursesList.innerHTML = otherCoursesHtml;
         })
         .catch((error) => {
           console.error("Error:", error);
